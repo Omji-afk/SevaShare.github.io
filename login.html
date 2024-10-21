@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Logo -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <img src="seva.png" alt="SevaShare Logo" style="width: 40px; height: auto;">
                 सेवाSHARE
             </a>
@@ -26,7 +26,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="SIte.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="ngo.html">Donate</a></li>
                 </ul>
@@ -67,7 +67,28 @@
             </p>
         </form>
     </div>
-
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container-fluid">
+            <p>&copy; 2024 SevaShare | Emergency Resource Exchange</p>
+        </div>
+        <div class="row justify-content-center">
+            <!-- Helpline -->
+            <div class="col-md-4 mb-3 mb-md-0">
+                <p class="mb-0">
+                    <i class="bi bi-telephone-fill me-2" style="color: var(--sky-blue);"></i>
+                    <a href="tel:+1234567890" class="text-decoration-none text-dark">+1 (234) 567-890</a>
+                </p>
+            </div>
+            <!-- Email Address -->
+            <div class="col-md-5">
+                <p class="mb-0">
+                    <i class="bi bi-envelope-fill me-2" style="color: var(--sky-blue);"></i>
+                    <a href="mailto:support@sevashare.org" class="text-decoration-none text-dark">support@sevashare.org</a>
+                </p>
+            </div>
+        </div>
+    </footer>
     <script>
         let generatedOtp = ''; // Simulated OTP for demonstration //changes: Added this variable to store OTP
 
@@ -125,7 +146,7 @@
                 // Open the selected NGO's website in a small window
                 window.open(ngoUrl, '_blank', 'width=600,height=400');
                 // Redirect to the main page after donation
-                window.location.href = "SIte.html"; // Replace with your main page URL
+                window.location.href = "index.html"; // Replace with your main page URL
             } else {
                 // Default behavior if no NGO is selected
                 alert('No NGO selected.');

@@ -215,7 +215,24 @@ footer {
     div.container-fluid {
         padding:0px 0px 0px 0px;
     }
-    
+    h2{
+        font-size: 1.3rem;
+    }
+    p{
+        font-size: 1rem;
+    }
+    .watermark {
+        font-size: 8px;
+    }
+    .donate-section {
+        margin-top: 0px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .btn-primary{
+        margin-bottom:10px;
+    }
 }
 @media (max-width: 320px) {
     .navbar-brand {
@@ -233,5 +250,23 @@ footer {
     }
     div.container-fluid {
         padding:0px 0px 0px 0px;
+    }
+    h2{
+        font-size: 1.3rem;
+    }
+    p{
+        font-size: 1rem;
+    }
+    .watermark {
+        font-size: 8px;
+    }
+    .donate-section {
+        margin-top: 0px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .btn-primary{
+        margin-bottom:10px;
     }
 }
