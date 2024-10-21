@@ -46,14 +46,75 @@
                 <span class="input-group-text">
                     <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
                 </span>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                <input type="text" class="form-control" id="contactInput" placeholder="Enter your phone or email" required> <!-- changes: New input for phone or email -->
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            
+            <!-- OTP Input (initially hidden) -->
+            <div class="mb-3 input-group d-none" id="otpSection"> <!-- changes: Added hidden section for OTP input -->
+                <span class="input-group-text">
+                    <i class="fas fa-key"></i> <!-- Font Awesome key icon for OTP -->
+                </span>
+                <input type="text" class="form-control" id="otpInput" placeholder="Enter the OTP" required> <!-- changes: New input field for OTP -->
+            </div>
+
+            <!-- Button to get OTP -->
+            <button type="button" class="btn btn-primary" id="getOtpBtn" onclick="sendOTP()">Get OTP</button> <!-- changes: New button to request OTP -->
+            <!-- Button to verify OTP (hidden initially) -->
+            <button type="button" class="btn btn-success d-none" id="verifyOtpBtn" onclick="verifyOTP()">Verify OTP</button> <!-- changes: Button to verify OTP, hidden initially -->
+
+            <p class="new-user mt-3">
+                <a href="reg.html">New User!</a>
+            </p>
         </form>
-        <p class="new-user mt-3" style="text-align: center;">
-            <a href="reg.html">New User!</a>
-        </p>
     </div>
+
+    <script>
+        let generatedOtp = ''; // Simulated OTP for demonstration //changes: Added this variable to store OTP
+
+        // Simulate sending an OTP
+        function sendOTP() { //changes: Added function to simulate OTP generation
+            const contact = document.getElementById('contactInput').value;
+            if (!contact) {
+                alert('Please enter your phone or email.');
+                return;
+            }
+
+            // Simulate OTP generation
+            generatedOtp = Math.floor(1000 + Math.random() * 9000).toString(); // 4-digit OTP //changes: Generate a 4-digit OTP
+            console.log('Generated OTP:', generatedOtp); // This should be sent via SMS/Email in real implementation
+
+            // Show the OTP input field and Verify button
+            document.getElementById('otpSection').classList.remove('d-none'); //changes: Show OTP input section
+            document.getElementById('verifyOtpBtn').classList.remove('d-none'); //changes: Show verify OTP button
+            document.getElementById('getOtpBtn').classList.add('d-none'); // Hide the Get OTP button //changes: Hide Get OTP button
+        }
+
+        // Allow any OTP for now
+        function verifyOTP() {
+    const enteredOtp = document.getElementById('otpInput').value;
+    if (enteredOtp) {
+        alert('OTP verified! You are now logged in.');
+
+        // Get the NGO URL from localStorage
+        const ngoUrl = localStorage.getItem('ngoUrl');
+
+        // Check if an NGO URL exists
+        if (ngoUrl) {
+            // Open the selected NGO's website in a popup window
+            window.open(ngoUrl, '_blank', 'width=600,height=400');
+        } else {
+            alert('No NGO selected.');
+        }
+
+        // Redirect to the main page
+        window.location.href = 'SIte.html'; // Example redirection
+    } else {
+        alert('Please enter the OTP.');
+    }
+}
+
+    </script>
+
     
     <script>
         function redirectToNGO(event) {
@@ -64,34 +125,13 @@
                 // Open the selected NGO's website in a small window
                 window.open(ngoUrl, '_blank', 'width=600,height=400');
                 // Redirect to the main page after donation
-                window.location.href = "certificate.html"; // Replace with your main page URL
+                window.location.href = "SIte.html"; // Replace with your main page URL
             } else {
                 // Default behavior if no NGO is selected
                 alert('No NGO selected.');
             }
         }
     </script>
-    <footer class="footer-section">
-        <div class="container-fluid">
-            <p>&copy; 2024 SevaShare | Emergency Resource Exchange</p>
-        </div>
-        <div class="row justify-content-center">
-            <!-- Helpline -->
-            <div class="col-md-4 mb-3 mb-md-0">
-                <p class="mb-0">
-                    <i class="bi bi-telephone-fill me-2" style="color: var(--sky-blue);"></i>
-                    <a href="tel:+1234567890" class="text-decoration-none text-dark">+1 (234) 567-890</a>
-                </p>
-            </div>
-            <!-- Email Address -->
-            <div class="col-md-5">
-                <p class="mb-0">
-                    <i class="bi bi-envelope-fill me-2" style="color: var(--sky-blue);"></i>
-                    <a href="mailto:support@sevashare.org" class="text-decoration-none text-dark">support@sevashare.org</a>
-                </p>
-            </div>
-        </div>
-    </footer>
     
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
